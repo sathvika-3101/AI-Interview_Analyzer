@@ -78,7 +78,7 @@ export function renderResultsView(reportData) {
   const shareBtn = document.getElementById("btn-share-report");
   if (shareBtn) {
     shareBtn.onclick = () => {
-      const textToShare = `AI Interview Analyzer Report\nQuestion: ${reportData.question}\nScore: ${overallScore}%\n`;
+      const textToShare = `PrepRoom Report\nQuestion: ${reportData.question}\nScore: ${overallScore}%\n`;
       if (navigator.share) {
         navigator.share({ title: 'Interview Report', text: textToShare });
       } else {
