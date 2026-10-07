@@ -102,6 +102,422 @@ You MUST return ONLY valid JSON matching this exact structure with no surroundin
   }
 
   /**
+ * Generate a new interview question using Gemini 2.5 Flash
+ * @param {string} topic - Interview topic or role
+ * @param {string} difficulty - Easy, Medium, or Hard
+ * @returns {Promise<string>} Generated interview question
+ */
+  static async generateInterviewQuestion(
+    topic,
+    difficulty = "Medium",
+    previousQuestion = "",
+    previousAnswer = ""
+  ) {
+    const apiKey = ConfigManager.getGeminiApiKey();
+
+    const hasPreviousAnswer =
+      previousQuestion.trim() && previousAnswer.trim();
+
+    const context = hasPreviousAnswer
+      ? `
+Previous interview question:
+${previousQuestion}
+
+Candidate's previous answer:
+${previousAnswer}
+
+Generate the NEXT question as a natural follow-up to the candidate's answer.
+
+The new question MUST:
+- Relate directly to the previous answer.
+- Test a deeper or connected concept.
+- Feel like a real interviewer is continuing the conversation.
+- Avoid repeating the previous question.
+- Do not suddenly switch to an unrelated topic.
+`
+      : `
+This is the first question of the interview.
+Start with a realistic question for the selected topic and difficulty.
+`;
+
+    const prompt = `
+You are a friendly and professional technical interviewer conducting an adaptive interview.
+
+Interview topic: ${topic}
+Current difficulty: ${difficulty}
+
+${context}
+
+Generate exactly ONE interview question.
+
+The question should:
+- Be appropriate for a real job interview.
+- Match the topic.
+- Match the requested difficulty.
+- Be conversational and natural.
+- Encourage the candidate to explain their reasoning.
+- Be concise.
+
+Return ONLY valid JSON in this format:
+
+{
+  "question": "Your interview question here"
+}
+`;
+
+    try {
+      if (!apiKey) {
+        return generateFallbackQuestion(topic, difficulty);
+      }
+
+      const response = await fetch(GEMINI_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text: prompt
+                }
+              ]
+            }
+          ],
+          generationConfig: {
+            temperature: 0.7,
+            topK: 40,
+            topP: 0.95,
+            maxOutputTokens: 300,
+            responseMimeType: "application/json"
+          }
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Gemini API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      const rawText =
+        data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+      const parsed = cleanAndParseJSON(rawText);
+
+      if (!parsed?.question) {
+        throw new Error("Invalid question response from Gemini");
+      }
+
+      return parsed.question;
+
+    } catch (error) {
+      console.error("Interview question generation error:", error);
+
+      return this.generateFallbackQuestion(topic, difficulty);
+    }
+  }
+
+  /**
+   * Provides a fallback question when Gemini is unavailable
+   */
+  static generateFallbackQuestion(topic, difficulty) {
+
+    const fallbackQuestions = {
+      Java: [
+        "Can you explain the difference between method overloading and method overriding in Java?",
+        "What are the main principles of object-oriented programming in Java?",
+        "How does exception handling work in Java?"
+      ],
+
+      Python: [
+        "What is the difference between a list and a tuple in Python?",
+        "Can you explain how dictionaries work in Python?",
+        "What are decorators in Python and when would you use them?"
+      ],
+
+      "Data Structures": [
+        "What is the difference between a stack and a queue?",
+        "How does binary search work and what is its time complexity?",
+        "When would you choose a linked list over an array?"
+      ],
+
+      SQL: [
+        "What is the difference between INNER JOIN and LEFT JOIN?",
+        "What is normalization in a relational database?",
+        "How would you find duplicate records in a SQL table?"
+      ],
+
+      "Data Analytics": [
+        "How would you handle missing values in a dataset?",
+        "What is the difference between correlation and causation?",
+        "How would you explain an important data insight to a non-technical manager?"
+      ],
+
+      HR: [
+        "Tell me about yourself.",
+        "Why should we hire you?",
+        "Tell me about a time you faced a difficult challenge and how you handled it."
+      ]
+    };
+
+    const questions = fallbackQuestions[topic];
+
+    if (questions) {
+      return questions[
+        Math.floor(Math.random() * questions.length)
+      ];
+    }
+
+    return `Can you explain an important concept related to ${topic} that you have learned recently?`;
+  }
+
+  /**
+ * Evaluate an answer and decide how the AI interviewer should continue
+ * @param {string} question
+ * @param {string} answer
+ * @param {string} topic
+ * @param {string} difficulty
+ * @param {number} questionNumber
+ * @param {number} totalQuestions
+ * @returns {Promise<Object>}
+ */
+  static async evaluateAdaptiveInterview(
+    question,
+    answer,
+    topic,
+    difficulty = "Medium",
+    questionNumber = 1,
+    totalQuestions = 5
+  ) {
+    const apiKey = ConfigManager.getGeminiApiKey();
+
+    const prompt = `You are PrepRoom, a friendly and supportive AI interviewer.
+
+You are conducting a realistic mock interview.
+
+Interview topic: ${topic}
+Current difficulty: ${difficulty}
+Question ${questionNumber} of ${totalQuestions}
+
+Question asked:
+"${question}"
+
+Candidate's answer:
+"${answer}"
+
+Analyze the candidate's answer carefully.
+
+Consider:
+- Technical correctness
+- Relevance to the question
+- Completeness
+- Communication clarity
+- Confidence
+- Whether the candidate needs a follow-up
+- Whether the next question should become easier, stay similar, or become harder
+
+IMPORTANT:
+You are a friendly interviewer, not a strict examiner.
+
+Your response should sound encouraging and natural.
+Do not insult or discourage the candidate.
+Do not reveal the evaluation process to the candidate.
+
+Choose ONE next_action:
+- "increase_difficulty"
+- "same_difficulty"
+- "decrease_difficulty"
+- "clarify_answer"
+
+If the answer is strong, normally increase the difficulty.
+If the answer is reasonable but incomplete, normally keep the difficulty similar.
+If the answer is weak or incorrect, decrease the difficulty or ask for clarification.
+
+If next_action is "clarify_answer", next_question should be a helpful follow-up question about the same concept.
+
+If this is the final question, set next_action to "complete_interview" and next_question to an empty string.
+
+Return ONLY valid JSON using exactly this structure:
+
+{
+  "answer_quality": "strong",
+  "score": 85,
+  "interviewer_response": "Nice! That's a solid explanation. Let's take it one step further.",
+  "strengths": [
+    "Clearly explained the main concept"
+  ],
+  "improvement": "Add a practical example to make the explanation stronger.",
+  "next_action": "increase_difficulty",
+  "next_question": "Can you explain how this concept works in a real-world application?",
+  "next_difficulty": "Hard"
+}`;
+
+    if (apiKey) {
+      try {
+        const response = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: prompt
+                  }
+                ]
+              }
+            ],
+            generationConfig: {
+              temperature: 0.6,
+              topK: 40,
+              topP: 0.95,
+              maxOutputTokens: 700,
+              responseMimeType: "application/json"
+            }
+          })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+
+          throw new Error(
+            errData.error?.message || `API HTTP ${response.status}`
+          );
+        }
+
+        const data = await response.json();
+
+        const rawText =
+          data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (rawText) {
+          const parsed = this.cleanAndParseJSON(rawText);
+
+          if (
+            parsed &&
+            typeof parsed.score === "number" &&
+            parsed.next_action &&
+            typeof parsed.interviewer_response === "string"
+          ) {
+            return parsed;
+          }
+        }
+
+      } catch (error) {
+        console.warn(
+          "Adaptive interview evaluation failed:",
+          error.message
+        );
+      }
+    }
+
+    // Safe fallback if Gemini is unavailable
+    return this.generateAdaptiveFallback(
+      question,
+      answer,
+      topic,
+      difficulty,
+      questionNumber,
+      totalQuestions
+    );
+  }
+
+  /**
+   * Friendly fallback for adaptive interview mode
+   */
+  static generateAdaptiveFallback(
+    question,
+    answer,
+    topic,
+    difficulty,
+    questionNumber,
+    totalQuestions
+  ) {
+    const wordCount = answer.trim().split(/\s+/).length;
+
+    let answerQuality = "partial";
+    let score = 65;
+
+    if (wordCount >= 80) {
+      answerQuality = "strong";
+      score = 85;
+    } else if (wordCount < 25) {
+      answerQuality = "weak";
+      score = 55;
+    }
+
+    if (questionNumber >= totalQuestions) {
+      return {
+        answer_quality: answerQuality,
+        score,
+        interviewer_response:
+          "Great job! You've completed the interview. Let's take a look at your overall performance.",
+        strengths: [
+          "You attempted the interview question."
+        ],
+        improvement:
+          "Try to support your answers with specific examples.",
+        next_action: "complete_interview",
+        next_question: "",
+        next_difficulty: difficulty
+      };
+    }
+
+    if (answerQuality === "strong") {
+      return {
+        answer_quality: "strong",
+        score,
+        interviewer_response:
+          "Nice! That's a solid answer. Let's make the next one a little more challenging.",
+        strengths: [
+          "Provided a detailed response."
+        ],
+        improvement:
+          "Keep supporting your answers with practical examples.",
+        next_action: "increase_difficulty",
+        next_question: "",
+        next_difficulty: "Hard"
+      };
+    }
+
+    if (answerQuality === "weak") {
+      return {
+        answer_quality: "weak",
+        score,
+        interviewer_response:
+          "No worries! You're on the right track. Let's try a simpler question.",
+        strengths: [
+          "You addressed the question."
+        ],
+        improvement:
+          "Try explaining your answer with a little more detail.",
+        next_action: "decrease_difficulty",
+        next_question: "",
+        next_difficulty: "Easy"
+      };
+    }
+
+    return {
+      answer_quality: "partial",
+      score,
+      interviewer_response:
+        "Good start! Let's explore that idea a little further.",
+      strengths: [
+        "You identified an important part of the topic."
+      ],
+      improvement:
+        "Adding an example would make your answer stronger.",
+      next_action: "same_difficulty",
+      next_question: "",
+      next_difficulty: difficulty
+    };
+  }
+
+  /**
    * Safely strip markdown codeblocks and parse JSON
    */
   static cleanAndParseJSON(raw) {
@@ -123,7 +539,7 @@ You MUST return ONLY valid JSON matching this exact structure with no surroundin
   static generateSmartFallback(question, answer) {
     const wordCount = answer.trim().split(/\s+/).length;
     const isTech = /code|system|database|api|architecture|react|node|algorithm|design|scale|sql/i.test(question + answer);
-    
+
     let baseScore = Math.min(95, Math.max(55, 60 + Math.round(wordCount / 4)));
     if (wordCount < 20) baseScore = 50;
 

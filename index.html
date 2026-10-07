@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PrepRoom — Practice Smarter. Interview Better.</title>
-  <meta name="description" content="Professional SaaS-style interview preparation platform. Practice interview questions, receive instant structured AI feedback, and track your performance over time." />
-  
+  <meta name="description"
+    content="Professional SaaS-style interview preparation platform. Practice interview questions, receive instant structured AI feedback, and track your performance over time." />
+
   <!-- Tailwind CSS CDN with custom dark config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -37,6 +39,7 @@
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body class="bg-[#0b0f19] text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
   <!-- ========================================== -->
@@ -44,10 +47,11 @@
   <!-- ========================================== -->
   <header class="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-[#0b0f19]/80 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      
+
       <!-- Brand Logo -->
       <a href="#landing" class="flex items-center gap-2.5 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-0.5 shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-0.5 shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition">
           <div class="w-full h-full bg-[#0b0f19] rounded-[10px] flex items-center justify-center">
             <i data-lucide="sparkles" class="w-5 h-5 text-indigo-400"></i>
           </div>
@@ -58,7 +62,8 @@
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav id="nav-app-links" class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800/80 text-sm font-medium">
+      <nav id="nav-app-links"
+        class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-2xl border border-slate-800/80 text-sm font-medium">
         <a href="#dashboard" class="nav-link px-3.5 py-1.5 rounded-xl hover:text-white transition">Dashboard</a>
         <a href="#interview" class="nav-link px-3.5 py-1.5 rounded-xl hover:text-white transition">Analyzer</a>
         <a href="#history" class="nav-link px-3.5 py-1.5 rounded-xl hover:text-white transition">History</a>
@@ -72,20 +77,28 @@
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="btn-mobile-menu" class="md:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+      <button id="btn-mobile-menu"
+        class="md:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
 
     </div>
 
     <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu-drawer" class="hidden md:hidden border-b border-slate-800 bg-[#0b0f19]/95 backdrop-blur-xl px-4 pt-2 pb-4 space-y-2">
+    <div id="mobile-menu-drawer"
+      class="hidden md:hidden border-b border-slate-800 bg-[#0b0f19]/95 backdrop-blur-xl px-4 pt-2 pb-4 space-y-2">
       <div id="mobile-nav-app-links" class="space-y-1">
-        <a href="#dashboard" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Dashboard</a>
-        <a href="#interview" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Interview Analyzer</a>
-        <a href="#history" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">History</a>
-        <a href="#analytics" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Analytics</a>
-        <a href="#profile" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Profile</a>
+        <a href="#dashboard"
+          class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Dashboard</a>
+        <a href="#interview"
+          class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Interview
+          Analyzer</a>
+        <a href="#history"
+          class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">History</a>
+        <a href="#analytics"
+          class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Analytics</a>
+        <a href="#profile"
+          class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white">Profile</a>
       </div>
     </div>
   </header>
@@ -99,13 +112,16 @@
     <!-- 1. LANDING PAGE VIEW                     -->
     <!-- ---------------------------------------- -->
     <section id="view-landing" class="view-section active space-y-20">
-      
+
       <!-- Hero Section -->
       <div class="relative text-center max-w-4xl mx-auto pt-10 sm:pt-16 pb-8 space-y-8">
         <!-- Glow Orbs -->
-        <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-500/15 blur-[120px] rounded-full pointer-events-none"></div>
+        <div
+          class="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-500/15 blur-[120px] rounded-full pointer-events-none">
+        </div>
 
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-300 shadow-inner">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-300 shadow-inner">
           <i data-lucide="zap" class="w-3.5 h-3.5 text-indigo-400"></i>
           <span>Powered by Gemini 2.5 Flash AI</span>
         </div>
@@ -120,11 +136,13 @@
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-          <a href="#interview" class="w-full sm:w-auto px-8 py-4 text-base font-bold text-white gradient-btn rounded-2xl shadow-xl shadow-indigo-500/25 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2">
+          <a href="#interview"
+            class="w-full sm:w-auto px-8 py-4 text-base font-bold text-white gradient-btn rounded-2xl shadow-xl shadow-indigo-500/25 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2">
             <i data-lucide="play" class="w-5 h-5"></i>
             <span>Start Practicing</span>
           </a>
-          <a href="#login" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-2xl hover:text-white transition flex items-center justify-center gap-2">
+          <a href="#login"
+            class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-2xl hover:text-white transition flex items-center justify-center gap-2">
             <i data-lucide="log-in" class="w-5 h-5"></i>
             <span>Login</span>
           </a>
@@ -140,12 +158,15 @@
                 <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                 <span class="text-xs font-mono text-slate-400 ml-2">Live AI Evaluation Demo</span>
               </div>
-              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Overall Score: 92%</span>
+              <span
+                class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Overall
+                Score: 92%</span>
             </div>
 
             <div class="space-y-2">
               <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Question</span>
-              <p class="text-sm font-medium text-slate-200">"Tell me about a time you optimized a slow system or database query."</p>
+              <p class="text-sm font-medium text-slate-200">"Tell me about a time you optimized a slow system or
+                database query."</p>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
@@ -179,27 +200,33 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="glass-panel glass-panel-hover p-8 rounded-3xl space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 border border-indigo-500/20">
+            <div
+              class="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 border border-indigo-500/20">
               <i data-lucide="cpu" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-white">Instant AI Feedback</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">Evaluates your answer in seconds using Gemini 2.5 Flash API for technical accuracy, grammar, clarity, and confidence.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">Evaluates your answer in seconds using Gemini 2.5 Flash
+              API for technical accuracy, grammar, clarity, and confidence.</p>
           </div>
 
           <div class="glass-panel glass-panel-hover p-8 rounded-3xl space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 border border-purple-500/20">
+            <div
+              class="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400 border border-purple-500/20">
               <i data-lucide="trending-up" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-white">Comprehensive Metrics</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">Detailed circular score meters, sub-score breakdowns, identified strengths, weaknesses, and missing key concepts.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">Detailed circular score meters, sub-score breakdowns,
+              identified strengths, weaknesses, and missing key concepts.</p>
           </div>
 
           <div class="glass-panel glass-panel-hover p-8 rounded-3xl space-y-4">
-            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/20">
+            <div
+              class="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 border border-cyan-500/20">
               <i data-lucide="award" class="w-6 h-6"></i>
             </div>
             <h3 class="text-lg font-bold text-white">STAR Recommendations</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">Generates a rewritten, exemplary answer using the Situation, Task, Action, Result framework that you can copy instantly.</p>
+            <p class="text-sm text-slate-400 leading-relaxed">Generates a rewritten, exemplary answer using the
+              Situation, Task, Action, Result framework that you can copy instantly.</p>
           </div>
         </div>
       </div>
@@ -209,11 +236,13 @@
     <!-- 2. LOGIN PAGE VIEW                       -->
     <!-- ---------------------------------------- -->
     <section id="view-login" class="view-section max-w-lg mx-auto py-8 sm:py-12 px-2">
-      <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl border border-slate-800 auth-glow-bg relative overflow-hidden">
-        
+      <div
+        class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl border border-slate-800 auth-glow-bg relative overflow-hidden">
+
         <!-- Header & Navigation Tabs -->
         <div class="text-center space-y-3">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center shadow-inner">
+          <div
+            class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center shadow-inner">
             <i data-lucide="shield-check" class="w-6 h-6"></i>
           </div>
           <div>
@@ -221,14 +250,18 @@
             <p class="text-xs text-slate-400 mt-1">Sign in to your candidate account with email verification</p>
           </div>
 
-          <div class="flex items-center justify-center p-1 bg-slate-900/80 rounded-xl border border-slate-800 max-w-xs mx-auto text-xs font-semibold">
-            <a href="#login" class="w-1/2 py-2 rounded-lg bg-indigo-600 text-white shadow-md text-center transition">Log In</a>
-            <a href="#register" class="w-1/2 py-2 rounded-lg text-slate-400 hover:text-white text-center transition">Create Account</a>
+          <div
+            class="flex items-center justify-center p-1 bg-slate-900/80 rounded-xl border border-slate-800 max-w-xs mx-auto text-xs font-semibold">
+            <a href="#login" class="w-1/2 py-2 rounded-lg bg-indigo-600 text-white shadow-md text-center transition">Log
+              In</a>
+            <a href="#register"
+              class="w-1/2 py-2 rounded-lg text-slate-400 hover:text-white text-center transition">Create Account</a>
           </div>
         </div>
 
         <!-- Verification Notice Banner (Dynamic) -->
-        <div id="login-verification-banner" class="hidden p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
+        <div id="login-verification-banner"
+          class="hidden p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2">
           <div class="flex items-start gap-3">
             <i data-lucide="mail-warning" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
             <div class="space-y-1">
@@ -239,11 +272,13 @@
             </div>
           </div>
           <div class="flex items-center justify-end gap-2 pt-1 border-t border-amber-500/20">
-            <button id="btn-resend-verification" type="button" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-semibold transition flex items-center gap-1.5">
+            <button id="btn-resend-verification" type="button"
+              class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-semibold transition flex items-center gap-1.5">
               <i data-lucide="send" class="w-3.5 h-3.5"></i>
               <span>Resend Email</span>
             </button>
-            <button id="btn-check-verification" type="button" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5">
+            <button id="btn-check-verification" type="button"
+              class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition flex items-center gap-1.5">
               <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
               <span>Check Status</span>
             </button>
@@ -251,30 +286,38 @@
         </div>
 
         <!-- Verification Alert Success Badge -->
-        <div id="login-verification-success" class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-3">
+        <div id="login-verification-success"
+          class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-300 flex items-center gap-3">
           <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
           <span>Verification email sent successfully! Please check your inbox or spam folder.</span>
         </div>
 
         <!-- Google OAuth Button -->
-        <button id="btn-google-login" type="button" class="w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-sm font-semibold text-slate-200 flex items-center justify-center gap-3 transition shadow-sm hover:border-slate-600">
+        <button id="btn-google-login" type="button"
+          class="w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-sm font-semibold text-slate-200 flex items-center justify-center gap-3 transition shadow-sm hover:border-slate-600">
           <svg class="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            <path fill="#4285F4"
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+            <path fill="#34A853"
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05"
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+            <path fill="#EA4335"
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
           </svg>
           <span>Continue with Google</span>
         </button>
 
         <div class="relative flex items-center justify-center">
           <div class="border-t border-slate-800 w-full"></div>
-          <span class="bg-[#0b0f19] px-3 text-xs text-slate-500 uppercase tracking-widest font-semibold absolute">or email</span>
+          <span class="bg-[#0b0f19] px-3 text-xs text-slate-500 uppercase tracking-widest font-semibold absolute">or
+            email</span>
         </div>
 
         <!-- Login Form -->
         <form id="form-login" class="space-y-4">
-          <div id="login-error-msg" class="hidden p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300 flex items-center gap-2">
+          <div id="login-error-msg"
+            class="hidden p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300 flex items-center gap-2">
             <i data-lucide="alert-circle" class="w-4 h-4 shrink-0 text-rose-400"></i>
             <span id="login-error-text">Invalid email address or password.</span>
           </div>
@@ -283,34 +326,41 @@
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
             <div class="relative">
               <i data-lucide="mail" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="login-email" type="email" required placeholder="name@company.com" class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
+              <input id="login-email" type="email" required placeholder="name@company.com"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
             </div>
           </div>
 
           <div>
             <div class="flex items-center justify-between mb-1.5">
               <label class="block text-xs font-semibold text-slate-300">Password</label>
-              <button id="btn-forgot-password-trigger" type="button" class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold hover:underline">
+              <button id="btn-forgot-password-trigger" type="button"
+                class="text-xs text-indigo-400 hover:text-indigo-300 font-semibold hover:underline">
                 Forgot password?
               </button>
             </div>
             <div class="relative">
               <i data-lucide="lock" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="login-password" type="password" required placeholder="••••••••" class="w-full pl-10 pr-10 py-2.5 rounded-xl glass-input text-sm" />
-              <button type="button" id="btn-toggle-login-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition focus:outline-none" title="Toggle password visibility">
+              <input id="login-password" type="password" required placeholder="••••••••"
+                class="w-full pl-10 pr-10 py-2.5 rounded-xl glass-input text-sm" />
+              <button type="button" id="btn-toggle-login-password"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition focus:outline-none"
+                title="Toggle password visibility">
                 <i data-lucide="eye" class="w-4 h-4"></i>
               </button>
             </div>
           </div>
 
-          <button id="btn-login-submit" type="submit" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white gradient-btn shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition">
+          <button id="btn-login-submit" type="submit"
+            class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white gradient-btn shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition">
             <i data-lucide="log-in" class="w-4 h-4"></i>
             <span>Log In to Account</span>
           </button>
         </form>
 
         <p class="text-xs text-center text-slate-400">
-          Don't have an account? <a href="#register" class="text-indigo-400 font-semibold hover:underline">Create a free account</a>
+          Don't have an account? <a href="#register" class="text-indigo-400 font-semibold hover:underline">Create a free
+            account</a>
         </p>
       </div>
     </section>
@@ -319,11 +369,13 @@
     <!-- 3. REGISTER PAGE VIEW                    -->
     <!-- ---------------------------------------- -->
     <section id="view-register" class="view-section max-w-lg mx-auto py-8 sm:py-12 px-2">
-      <div class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl border border-slate-800 auth-glow-bg relative overflow-hidden">
-        
+      <div
+        class="glass-panel p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl border border-slate-800 auth-glow-bg relative overflow-hidden">
+
         <!-- Header & Navigation Tabs -->
         <div class="text-center space-y-3">
-          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 mx-auto flex items-center justify-center shadow-inner">
+          <div
+            class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 mx-auto flex items-center justify-center shadow-inner">
             <i data-lucide="user-plus" class="w-6 h-6"></i>
           </div>
           <div>
@@ -331,48 +383,62 @@
             <p class="text-xs text-slate-400 mt-1">Start practicing interviews with instant AI evaluation</p>
           </div>
 
-          <div class="flex items-center justify-center p-1 bg-slate-900/80 rounded-xl border border-slate-800 max-w-xs mx-auto text-xs font-semibold">
-            <a href="#login" class="w-1/2 py-2 rounded-lg text-slate-400 hover:text-white text-center transition">Log In</a>
-            <a href="#register" class="w-1/2 py-2 rounded-lg bg-indigo-600 text-white shadow-md text-center transition">Create Account</a>
+          <div
+            class="flex items-center justify-center p-1 bg-slate-900/80 rounded-xl border border-slate-800 max-w-xs mx-auto text-xs font-semibold">
+            <a href="#login" class="w-1/2 py-2 rounded-lg text-slate-400 hover:text-white text-center transition">Log
+              In</a>
+            <a href="#register"
+              class="w-1/2 py-2 rounded-lg bg-indigo-600 text-white shadow-md text-center transition">Create Account</a>
           </div>
         </div>
 
         <!-- Registration Success Email Verification Box -->
-        <div id="register-success-box" class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
+        <div id="register-success-box"
+          class="hidden p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
           <div class="flex items-start gap-3">
             <i data-lucide="mail-check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
             <div class="space-y-1">
               <h4 class="text-xs font-bold text-emerald-300">Account Created & Verification Sent!</h4>
               <p class="text-xs text-emerald-200/80 leading-relaxed">
-                We've dispatched a verification link to <span id="register-sent-email" class="font-bold text-white"></span>. Please check your inbox and verify your email to unlock all features.
+                We've dispatched a verification link to <span id="register-sent-email"
+                  class="font-bold text-white"></span>. Please check your inbox and verify your email to unlock all
+                features.
               </p>
             </div>
           </div>
-          <a href="#login" class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center justify-center gap-2">
+          <a href="#login"
+            class="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center justify-center gap-2">
             <span>Proceed to Log In</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
           </a>
         </div>
 
         <!-- Google OAuth Button -->
-        <button id="btn-google-register" type="button" class="w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-sm font-semibold text-slate-200 flex items-center justify-center gap-3 transition shadow-sm hover:border-slate-600">
+        <button id="btn-google-register" type="button"
+          class="w-full py-3 px-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-sm font-semibold text-slate-200 flex items-center justify-center gap-3 transition shadow-sm hover:border-slate-600">
           <svg class="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            <path fill="#4285F4"
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+            <path fill="#34A853"
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+            <path fill="#FBBC05"
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+            <path fill="#EA4335"
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
           </svg>
           <span>Sign up with Google</span>
         </button>
 
         <div class="relative flex items-center justify-center">
           <div class="border-t border-slate-800 w-full"></div>
-          <span class="bg-[#0b0f19] px-3 text-xs text-slate-500 uppercase tracking-widest font-semibold absolute">or registration form</span>
+          <span class="bg-[#0b0f19] px-3 text-xs text-slate-500 uppercase tracking-widest font-semibold absolute">or
+            registration form</span>
         </div>
 
         <!-- Registration Form -->
         <form id="form-register" class="space-y-4">
-          <div id="register-error-msg" class="hidden p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300 flex items-center gap-2">
+          <div id="register-error-msg"
+            class="hidden p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-300 flex items-center gap-2">
             <i data-lucide="alert-circle" class="w-4 h-4 shrink-0 text-rose-400"></i>
             <span id="register-error-text">An error occurred during registration.</span>
           </div>
@@ -381,7 +447,8 @@
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">Full Name</label>
             <div class="relative">
               <i data-lucide="user" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="reg-name" type="text" required placeholder="Alex Morgan" class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
+              <input id="reg-name" type="text" required placeholder="Alex Morgan"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
             </div>
           </div>
 
@@ -389,7 +456,8 @@
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
             <div class="relative">
               <i data-lucide="mail" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="reg-email" type="email" required placeholder="you@example.com" class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
+              <input id="reg-email" type="email" required placeholder="you@example.com"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
             </div>
           </div>
 
@@ -397,8 +465,11 @@
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">Password</label>
             <div class="relative">
               <i data-lucide="lock" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="reg-password" type="password" required minlength="6" placeholder="At least 6 characters" class="w-full pl-10 pr-10 py-2.5 rounded-xl glass-input text-sm" />
-              <button type="button" id="btn-toggle-reg-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition focus:outline-none" title="Toggle password visibility">
+              <input id="reg-password" type="password" required minlength="6" placeholder="At least 6 characters"
+                class="w-full pl-10 pr-10 py-2.5 rounded-xl glass-input text-sm" />
+              <button type="button" id="btn-toggle-reg-password"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition focus:outline-none"
+                title="Toggle password visibility">
                 <i data-lucide="eye" class="w-4 h-4"></i>
               </button>
             </div>
@@ -418,9 +489,13 @@
           <div>
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">Confirm Password</label>
             <div class="relative">
-              <i data-lucide="check-check" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="reg-confirm-password" type="password" required minlength="6" placeholder="Repeat your password" class="w-full pl-10 pr-10 py-2.5 rounded-xl glass-input text-sm" />
-              <button type="button" id="btn-toggle-reg-confirm-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition focus:outline-none" title="Toggle password visibility">
+              <i data-lucide="check-check"
+                class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <input id="reg-confirm-password" type="password" required minlength="6" placeholder="Repeat your password"
+                class="w-full pl-10 pr-10 py-2.5 rounded-xl glass-input text-sm" />
+              <button type="button" id="btn-toggle-reg-confirm-password"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 transition focus:outline-none"
+                title="Toggle password visibility">
                 <i data-lucide="eye" class="w-4 h-4"></i>
               </button>
             </div>
@@ -430,14 +505,16 @@
             </p>
           </div>
 
-          <button id="btn-register-submit" type="submit" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white gradient-btn shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition">
+          <button id="btn-register-submit" type="submit"
+            class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white gradient-btn shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition">
             <i data-lucide="user-check" class="w-4 h-4"></i>
             <span>Create Account & Send Verification</span>
           </button>
         </form>
 
         <p class="text-xs text-center text-slate-400">
-          Already registered? <a href="#login" class="text-indigo-400 font-semibold hover:underline">Log in to your account</a>
+          Already registered? <a href="#login" class="text-indigo-400 font-semibold hover:underline">Log in to your
+            account</a>
         </p>
       </div>
     </section>
@@ -446,21 +523,24 @@
     <!-- 4. DASHBOARD VIEW                        -->
     <!-- ---------------------------------------- -->
     <section id="view-dashboard" class="view-section space-y-8">
-      
+
       <!-- Welcome Header Banner -->
-      <div class="glass-panel p-8 rounded-3xl border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
+      <div
+        class="glass-panel p-8 rounded-3xl border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
         <div class="space-y-2 z-10">
           <span class="text-xs font-bold text-indigo-400 tracking-wider uppercase">Candidate Portal</span>
           <h1 class="text-3xl font-extrabold text-white">
             Welcome back, <span id="dash-user-name" class="gradient-text">Candidate</span> 👋
           </h1>
           <p class="text-sm text-slate-300 max-w-xl">
-            Ready to refine your answers? Practice custom questions or choose from our expert templates to receive instant AI scoring.
+            Ready to refine your answers? Practice custom questions or choose from our expert templates to receive
+            instant AI scoring.
           </p>
         </div>
 
         <div class="z-10 shrink-0">
-          <a href="#interview" class="px-6 py-3.5 text-sm font-bold text-white gradient-btn rounded-2xl shadow-xl shadow-indigo-500/25 hover:scale-105 transition inline-flex items-center gap-2">
+          <a href="#interview"
+            class="px-6 py-3.5 text-sm font-bold text-white gradient-btn rounded-2xl shadow-xl shadow-indigo-500/25 hover:scale-105 transition inline-flex items-center gap-2">
             <i data-lucide="plus" class="w-4 h-4"></i>
             <span>Quick Start Practice</span>
           </a>
@@ -469,7 +549,7 @@
 
       <!-- Stat Widgets Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        
+
         <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-3 relative overflow-hidden">
           <div class="flex items-center justify-between text-slate-400">
             <span class="text-xs font-medium uppercase tracking-wider">Average Score</span>
@@ -525,16 +605,104 @@
     <!-- 5. INTERVIEW ANALYZER VIEW               -->
     <!-- ---------------------------------------- -->
     <section id="view-interview" class="view-section max-w-4xl mx-auto space-y-6">
-      
+
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 class="text-2xl font-bold text-white">Interview Analyzer</h1>
-          <p class="text-xs text-slate-400">Submit an interview question and your answer to get instant AI evaluation.</p>
+          <p class="text-xs text-slate-400">Submit an interview question and your answer to get instant AI evaluation.
+          </p>
         </div>
 
-        <button id="btn-clear-analyzer" type="button" class="self-start sm:self-auto px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-slate-400 hover:text-white border border-slate-800 transition">
+        <button id="btn-clear-analyzer" type="button"
+          class="self-start sm:self-auto px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-slate-400 hover:text-white border border-slate-800 transition">
           Clear Inputs
         </button>
+      </div>
+
+      <!-- Interview Mode -->
+      <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-5">
+
+        <!-- Heading -->
+        <div>
+          <h3 class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+            Interview Mode
+          </h3>
+
+          <p class="text-xs text-slate-500 mt-1">
+            Choose your own question or let PrepRoom generate one for you.
+          </p>
+        </div>
+
+        <!-- Mode Selection -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+          <!-- User Question Mode -->
+          <button id="mode-user-question" type="button"
+            class="interview-mode-btn px-4 py-4 rounded-2xl border border-indigo-500/50 bg-indigo-600/20 text-left transition">
+            <div class="text-sm font-semibold text-white">
+              👤 Choose My Question
+            </div>
+
+            <div class="text-xs text-slate-400 mt-1">
+              Select from the available questions.
+            </div>
+          </button>
+
+          <!-- AI Interviewer Mode -->
+          <button id="mode-ai-question" type="button"
+            class="interview-mode-btn px-4 py-4 rounded-2xl border border-slate-700 bg-slate-900/40 text-left transition">
+            <div class="text-sm font-semibold text-white">
+              🤖 AI Interviewer
+            </div>
+
+            <div class="text-xs text-slate-400 mt-1">
+              Let PrepRoom generate questions for you.
+            </div>
+          </button>
+
+        </div>
+
+        <!-- AI Interview Options -->
+        <div id="ai-interview-options" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <!-- Topic -->
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-2">
+              Interview Topic
+            </label>
+
+            <select id="ai-topic" class="w-full p-3 rounded-xl glass-input text-sm">
+              <option value="Java">Java</option>
+              <option value="Python">Python</option>
+              <option value="Data Structures">Data Structures</option>
+              <option value="SQL">SQL</option>
+              <option value="Data Analytics">Data Analytics</option>
+              <option value="HR">HR / Behavioral</option>
+            </select>
+          </div>
+
+          <!-- Difficulty -->
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-2">
+              Difficulty
+            </label>
+
+            <select id="ai-difficulty" class="w-full p-3 rounded-xl glass-input text-sm">
+              <option value="Easy">Easy</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Generate Question Button -->
+        <button id="btn-generate-question" type="button"
+          class="hidden w-full px-4 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold transition">
+          🤖 Generate Interview Question
+        </button>
+
       </div>
 
       <!-- Quick Sample Templates -->
@@ -547,27 +715,75 @@
 
       <!-- Form -->
       <form id="form-analyzer" class="space-y-6">
-        
+
         <!-- Question Textarea -->
         <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-2">
-          <label class="block text-sm font-semibold text-slate-200 flex items-center gap-2">
-            <i data-lucide="help-circle" class="w-4 h-4 text-indigo-400"></i>
-            Interview Question
-          </label>
-          <textarea id="input-question" required rows="3" placeholder="e.g. Tell me about a time you had to optimize a slow database query or resolve a technical bottleneck..." class="w-full p-4 rounded-2xl glass-input text-sm resize-none"></textarea>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+            <label class="block text-sm font-semibold text-slate-200 flex items-center gap-2">
+              <i data-lucide="help-circle" class="w-4 h-4 text-indigo-400"></i>
+              Interview Question
+            </label>
+
+            <button id="btn-speak-question" type="button"
+              class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20">
+              🔊 Read Question
+            </button>
+
+          </div>
+          <textarea id="input-question" required rows="3"
+            placeholder="e.g. Tell me about a time you had to optimize a slow database query or resolve a technical bottleneck..."
+            class="w-full p-4 rounded-2xl glass-input text-sm resize-none"></textarea>
         </div>
 
-        <!-- Answer Textarea -->
-        <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-2">
-          <label class="block text-sm font-semibold text-slate-200 flex items-center gap-2">
-            <i data-lucide="message-square" class="w-4 h-4 text-purple-400"></i>
-            Your Answer
-          </label>
-          <textarea id="input-answer" required rows="6" placeholder="Type or paste your candidate answer here. Be as detailed as possible..." class="w-full p-4 rounded-2xl glass-input text-sm resize-none"></textarea>
+        <!-- Answer Section -->
+        <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
+
+          <!-- Answer Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+
+            <label class="block text-sm font-semibold text-slate-200 flex items-center gap-2">
+              <i data-lucide="message-square" class="w-4 h-4 text-purple-400"></i>
+              Your Answer
+            </label>
+
+            <!-- Voice Practice Button -->
+            <button id="btn-voice-practice" type="button"
+              class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20">
+              🎙️ Start Speaking
+            </button>
+
+          </div>
+
+          <!-- Voice Status -->
+          <div class="flex items-center justify-between px-3 py-2 rounded-xl bg-slate-900/70 border border-slate-800">
+
+            <span id="voice-status" class="text-xs text-slate-400">
+              🎙️ Click "Start Speaking" to answer using your voice
+            </span>
+
+            <span id="voice-timer" class="text-xs font-mono font-bold text-indigo-400">
+              00:00
+            </span>
+
+          </div>
+
+          <!-- Answer Textarea -->
+          <textarea id="input-answer" required rows="6"
+            placeholder="Type your answer or use Voice Practice to speak your answer..."
+            class="w-full p-4 rounded-2xl glass-input text-sm resize-none"></textarea>
+
+          <!-- Voice Practice Hint -->
+          <p class="text-[11px] text-slate-500 flex items-center gap-1.5">
+            <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+            Your spoken answer will automatically appear here as text.
+          </p>
+
         </div>
 
         <!-- Submit CTA Button -->
-        <button type="submit" class="w-full py-4 text-base font-bold text-white gradient-btn rounded-2xl shadow-xl shadow-indigo-500/25 hover:scale-[1.01] active:scale-[0.99] transition flex items-center justify-center gap-2">
+        <button type="submit"
+          class="w-full py-4 text-base font-bold text-white gradient-btn rounded-2xl shadow-xl shadow-indigo-500/25 hover:scale-[1.01] active:scale-[0.99] transition flex items-center justify-center gap-2">
           <i data-lucide="sparkles" class="w-5 h-5"></i>
           <span>Analyze Answer with AI</span>
         </button>
@@ -575,11 +791,14 @@
       </form>
 
       <!-- Loading Overlay Modal -->
-      <div id="analyzer-loader-modal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-        <div class="glass-panel p-8 rounded-3xl border border-slate-800 max-w-sm w-full text-center space-y-6 shadow-2xl">
+      <div id="analyzer-loader-modal"
+        class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+        <div
+          class="glass-panel p-8 rounded-3xl border border-slate-800 max-w-sm w-full text-center space-y-6 shadow-2xl">
           <div class="relative w-20 h-20 mx-auto">
             <div class="absolute inset-0 rounded-full border-4 border-indigo-500/20"></div>
-            <div class="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin"></div>
+            <div class="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin">
+            </div>
             <div class="w-full h-full flex items-center justify-center text-indigo-400">
               <i data-lucide="cpu" class="w-8 h-8 animate-pulse"></i>
             </div>
@@ -587,7 +806,8 @@
 
           <div class="space-y-2">
             <h3 class="text-lg font-bold text-white">Analyzing Response...</h3>
-            <p id="analyzer-loader-text" class="text-xs text-slate-400 animate-pulse">Connecting to Gemini 2.5 Flash AI...</p>
+            <p id="analyzer-loader-text" class="text-xs text-slate-400 animate-pulse">Connecting to Gemini 2.5 Flash
+              AI...</p>
           </div>
         </div>
       </div>
@@ -597,23 +817,26 @@
     <!-- 6. ANALYSIS RESULTS VIEW                 -->
     <!-- ---------------------------------------- -->
     <section id="view-results" class="view-section space-y-8">
-      
+
       <!-- Top Actions Bar -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <a href="#interview" class="text-xs font-semibold text-slate-400 hover:text-indigo-400 transition flex items-center gap-1 mb-1">
+          <a href="#interview"
+            class="text-xs font-semibold text-slate-400 hover:text-indigo-400 transition flex items-center gap-1 mb-1">
             ← Back to Practice
           </a>
           <h1 class="text-2xl font-bold text-white">Evaluation Report</h1>
         </div>
 
         <div class="flex items-center gap-3">
-          <button id="btn-share-report" type="button" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-2 transition">
+          <button id="btn-share-report" type="button"
+            class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-2 transition">
             <i data-lucide="share-2" class="w-4 h-4"></i>
             <span>Share Report</span>
           </button>
 
-          <a href="#interview" class="px-4 py-2 rounded-xl gradient-btn text-xs font-bold text-white shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+          <a href="#interview"
+            class="px-4 py-2 rounded-xl gradient-btn text-xs font-bold text-white shadow-lg shadow-indigo-500/20 flex items-center gap-2">
             <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
             <span>Practice Another</span>
           </a>
@@ -621,10 +844,12 @@
       </div>
 
       <!-- Demo Mode Warning Banner -->
-      <div id="res-demo-banner" class="hidden p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
+      <div id="res-demo-banner"
+        class="hidden p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
         <div class="flex items-center gap-2">
           <i data-lucide="info" class="w-4 h-4 shrink-0 text-amber-400"></i>
-          <span>Running in <strong>Smart Demo Mode</strong>. For live Gemini 2.5 Flash API responses, configure your API Key in Profile.</span>
+          <span>Running in <strong>Smart Demo Mode</strong>. For live Gemini 2.5 Flash API responses, configure your API
+            Key in Profile.</span>
         </div>
         <a href="#profile" class="underline font-bold hover:text-white">Configure Key</a>
       </div>
@@ -637,23 +862,28 @@
         </div>
         <div class="pt-3 border-t border-slate-800">
           <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Candidate Answer</span>
-          <p id="res-answer" class="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-slate-900/50 p-4 rounded-2xl border border-slate-800/80">--</p>
+          <p id="res-answer"
+            class="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-slate-900/50 p-4 rounded-2xl border border-slate-800/80">
+            --</p>
         </div>
       </div>
 
       <!-- Score Section (Circular Ring + 4 Sub-score Progress Bars) -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
+
         <!-- Overall Score Card with SVG Ring -->
-        <div class="glass-panel p-8 rounded-3xl border border-slate-800 flex flex-col items-center justify-center text-center space-y-4">
+        <div
+          class="glass-panel p-8 rounded-3xl border border-slate-800 flex flex-col items-center justify-center text-center space-y-4">
           <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Overall Score</span>
-          
+
           <div class="relative w-36 h-36 flex items-center justify-center">
             <svg class="w-full h-full" viewBox="0 0 120 120">
               <!-- Background Circle -->
               <circle cx="60" cy="60" r="54" stroke="#1e293b" stroke-width="10" fill="transparent" />
               <!-- Animated Progress Circle -->
-              <circle id="res-score-ring" class="score-ring-circle" cx="60" cy="60" r="54" stroke="url(#scoreGradient)" stroke-width="10" fill="transparent" stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="339.29" />
+              <circle id="res-score-ring" class="score-ring-circle" cx="60" cy="60" r="54" stroke="url(#scoreGradient)"
+                stroke-width="10" fill="transparent" stroke-linecap="round" stroke-dasharray="339.29"
+                stroke-dashoffset="339.29" />
               <defs>
                 <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#6366f1" />
@@ -670,7 +900,8 @@
         </div>
 
         <!-- Sub-score Progress Bars (2 columns span) -->
-        <div class="lg:col-span-2 glass-panel p-8 rounded-3xl border border-slate-800 space-y-5 justify-center flex flex-col">
+        <div
+          class="lg:col-span-2 glass-panel p-8 rounded-3xl border border-slate-800 space-y-5 justify-center flex flex-col">
           <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Performance Breakdown</h3>
 
           <!-- Technical Score -->
@@ -680,7 +911,8 @@
               <span id="res-technical-score" class="text-indigo-400">0%</span>
             </div>
             <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
-              <div id="res-technical-bar" class="h-full bg-indigo-500 rounded-full transition-all duration-1000" style="width: 0%"></div>
+              <div id="res-technical-bar" class="h-full bg-indigo-500 rounded-full transition-all duration-1000"
+                style="width: 0%"></div>
             </div>
           </div>
 
@@ -691,7 +923,8 @@
               <span id="res-communication-score" class="text-purple-400">0%</span>
             </div>
             <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
-              <div id="res-communication-bar" class="h-full bg-purple-500 rounded-full transition-all duration-1000" style="width: 0%"></div>
+              <div id="res-communication-bar" class="h-full bg-purple-500 rounded-full transition-all duration-1000"
+                style="width: 0%"></div>
             </div>
           </div>
 
@@ -702,7 +935,8 @@
               <span id="res-grammar-score" class="text-cyan-400">0%</span>
             </div>
             <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
-              <div id="res-grammar-bar" class="h-full bg-cyan-500 rounded-full transition-all duration-1000" style="width: 0%"></div>
+              <div id="res-grammar-bar" class="h-full bg-cyan-500 rounded-full transition-all duration-1000"
+                style="width: 0%"></div>
             </div>
           </div>
 
@@ -713,7 +947,8 @@
               <span id="res-confidence-score" class="text-amber-400">0%</span>
             </div>
             <div class="w-full h-2.5 rounded-full bg-slate-800 overflow-hidden">
-              <div id="res-confidence-bar" class="h-full bg-amber-500 rounded-full transition-all duration-1000" style="width: 0%"></div>
+              <div id="res-confidence-bar" class="h-full bg-amber-500 rounded-full transition-all duration-1000"
+                style="width: 0%"></div>
             </div>
           </div>
 
@@ -722,7 +957,7 @@
 
       <!-- Strengths, Weaknesses & Missing Topics -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
+
         <!-- Strengths -->
         <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
           <h3 class="text-sm font-bold text-emerald-400 flex items-center gap-2">
@@ -760,13 +995,16 @@
             Recommended STAR Response
           </h3>
 
-          <button id="btn-copy-improved" type="button" class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-indigo-300 border border-slate-700 flex items-center gap-1.5 transition">
+          <button id="btn-copy-improved" type="button"
+            class="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-indigo-300 border border-slate-700 flex items-center gap-1.5 transition">
             <i data-lucide="copy" class="w-3.5 h-3.5"></i>
             <span>Copy Answer</span>
           </button>
         </div>
 
-        <div id="res-improved-answer" class="text-xs sm:text-sm text-slate-200 font-mono leading-relaxed bg-slate-950/80 p-5 rounded-2xl border border-slate-800 whitespace-pre-wrap">--</div>
+        <div id="res-improved-answer"
+          class="text-xs sm:text-sm text-slate-200 font-mono leading-relaxed bg-slate-950/80 p-5 rounded-2xl border border-slate-800 whitespace-pre-wrap">
+          --</div>
       </div>
 
       <!-- Interview Tips -->
@@ -784,7 +1022,7 @@
     <!-- 7. HISTORY VIEW                          -->
     <!-- ---------------------------------------- -->
     <section id="view-history" class="view-section space-y-6">
-      
+
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 class="text-2xl font-bold text-white">Interview History</h1>
@@ -795,10 +1033,12 @@
         <div class="flex items-center gap-3">
           <div class="relative">
             <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
-            <input id="history-search" type="text" placeholder="Search questions..." class="pl-9 pr-4 py-2 text-xs rounded-xl glass-input w-48 sm:w-64" />
+            <input id="history-search" type="text" placeholder="Search questions..."
+              class="pl-9 pr-4 py-2 text-xs rounded-xl glass-input w-48 sm:w-64" />
           </div>
 
-          <select id="history-sort" class="px-3 py-2 text-xs rounded-xl glass-input bg-slate-900 border border-slate-800 text-slate-300">
+          <select id="history-sort"
+            class="px-3 py-2 text-xs rounded-xl glass-input bg-slate-900 border border-slate-800 text-slate-300">
             <option value="latest">Sort: Latest</option>
             <option value="highest">Sort: Highest Score</option>
             <option value="lowest">Sort: Lowest Score</option>
@@ -807,12 +1047,14 @@
       </div>
 
       <!-- Empty State -->
-      <div id="history-empty-state" class="hidden text-center py-16 px-4 rounded-3xl glass-panel border border-dashed border-slate-800 space-y-4">
+      <div id="history-empty-state"
+        class="hidden text-center py-16 px-4 rounded-3xl glass-panel border border-dashed border-slate-800 space-y-4">
         <div class="w-12 h-12 mx-auto rounded-full bg-slate-800 flex items-center justify-center text-slate-400">
           <i data-lucide="inbox" class="w-6 h-6"></i>
         </div>
         <h3 class="text-base font-semibold text-slate-200">No interviews match your criteria</h3>
-        <p class="text-xs text-slate-400 max-w-sm mx-auto">Try clearing your search term or practice a new question to generate evaluation reports.</p>
+        <p class="text-xs text-slate-400 max-w-sm mx-auto">Try clearing your search term or practice a new question to
+          generate evaluation reports.</p>
       </div>
 
       <!-- History List Grid -->
@@ -826,7 +1068,7 @@
     <!-- 8. ANALYTICS VIEW                        -->
     <!-- ---------------------------------------- -->
     <section id="view-analytics" class="view-section space-y-8">
-      
+
       <div>
         <h1 class="text-2xl font-bold text-white">Performance Analytics</h1>
         <p class="text-xs text-slate-400">Track your score trajectory, skill distribution, and practice consistency.</p>
@@ -850,7 +1092,7 @@
 
       <!-- Charts Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
+
         <!-- Score Trend Line Chart -->
         <div class="glass-panel p-6 rounded-3xl border border-slate-800 space-y-4">
           <h3 class="text-sm font-bold text-white flex items-center gap-2">
@@ -880,10 +1122,11 @@
     <!-- 9. PROFILE VIEW                          -->
     <!-- ---------------------------------------- -->
     <section id="view-profile" class="view-section max-w-4xl mx-auto space-y-8">
-      
+
       <!-- Profile Header Card -->
       <div class="glass-panel p-8 rounded-3xl border border-slate-800 flex flex-col sm:flex-row sm:items-center gap-6">
-        <div id="profile-avatar-container" class="w-20 h-20 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-xl shrink-0">
+        <div id="profile-avatar-container"
+          class="w-20 h-20 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center shadow-xl shrink-0">
           <span class="text-2xl font-bold text-white">U</span>
         </div>
 
@@ -918,21 +1161,27 @@
               <i data-lucide="key" class="w-5 h-5 text-indigo-400"></i>
               Gemini 2.5 Flash API Key
             </h3>
-            <p class="text-xs text-slate-400 mt-1">Provide your Gemini API key to enable live AI evaluations directly from your browser.</p>
+            <p class="text-xs text-slate-400 mt-1">Provide your Gemini API key to enable live AI evaluations directly
+              from your browser.</p>
           </div>
         </div>
 
-        <div id="key-status-msg" class="hidden p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center gap-2"></div>
+        <div id="key-status-msg"
+          class="hidden p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 flex items-center gap-2">
+        </div>
 
         <div class="flex items-center gap-3">
           <div class="relative flex-grow">
-            <input id="input-gemini-key" type="password" placeholder="AIzaSy..." class="w-full px-4 py-2.5 rounded-xl glass-input text-xs font-mono pr-10" />
-            <button id="btn-toggle-key-vis" type="button" class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white">
+            <input id="input-gemini-key" type="password" placeholder="AIzaSy..."
+              class="w-full px-4 py-2.5 rounded-xl glass-input text-xs font-mono pr-10" />
+            <button id="btn-toggle-key-vis" type="button"
+              class="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-white">
               <i data-lucide="eye" class="w-4 h-4"></i>
             </button>
           </div>
 
-          <button id="btn-save-gemini-key" type="button" class="px-5 py-2.5 text-xs font-bold text-white gradient-btn rounded-xl shadow-lg shadow-indigo-500/20 shrink-0">
+          <button id="btn-save-gemini-key" type="button"
+            class="px-5 py-2.5 text-xs font-bold text-white gradient-btn rounded-xl shadow-lg shadow-indigo-500/20 shrink-0">
             Save Key
           </button>
         </div>
@@ -940,7 +1189,8 @@
 
       <!-- Account Actions -->
       <div class="pt-4 flex justify-end">
-        <button id="btn-logout-profile" type="button" class="px-5 py-2.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-semibold flex items-center gap-2 transition">
+        <button id="btn-logout-profile" type="button"
+          class="px-5 py-2.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-semibold flex items-center gap-2 transition">
           <i data-lucide="log-out" class="w-4 h-4"></i>
           <span>Sign Out Account</span>
         </button>
@@ -949,18 +1199,23 @@
     </section>
 
     <!-- Forgot Password Modal -->
-    <div id="modal-forgot-password" class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
-      <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 max-w-md w-full space-y-5 shadow-2xl relative">
-        <button id="btn-close-forgot-modal" type="button" class="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
+    <div id="modal-forgot-password"
+      class="hidden fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4">
+      <div
+        class="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 max-w-md w-full space-y-5 shadow-2xl relative">
+        <button id="btn-close-forgot-modal" type="button"
+          class="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
         <div class="text-center space-y-2">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center">
+          <div
+            class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mx-auto flex items-center justify-center">
             <i data-lucide="key-round" class="w-6 h-6"></i>
           </div>
           <h3 class="text-xl font-bold text-white">Reset Your Password</h3>
-          <p class="text-xs text-slate-400">Enter your registered email address and we'll send you a password reset link.</p>
+          <p class="text-xs text-slate-400">Enter your registered email address and we'll send you a password reset
+            link.</p>
         </div>
 
         <div id="forgot-status-msg" class="hidden p-3.5 rounded-2xl text-xs flex items-center gap-2"></div>
@@ -970,11 +1225,13 @@
             <label class="block text-xs font-semibold text-slate-300 mb-1.5">Email Address</label>
             <div class="relative">
               <i data-lucide="mail" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-              <input id="forgot-email" type="email" required placeholder="name@company.com" class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
+              <input id="forgot-email" type="email" required placeholder="name@company.com"
+                class="w-full pl-10 pr-4 py-2.5 rounded-xl glass-input text-sm" />
             </div>
           </div>
 
-          <button id="btn-send-reset-link" type="submit" class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white gradient-btn shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition">
+          <button id="btn-send-reset-link" type="submit"
+            class="w-full py-3.5 px-4 rounded-xl text-sm font-bold text-white gradient-btn shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition">
             <i data-lucide="send" class="w-4 h-4"></i>
             <span>Send Reset Link</span>
           </button>
@@ -988,7 +1245,8 @@
   <!-- FOOTER                                     -->
   <!-- ========================================== -->
   <footer class="border-t border-slate-800/80 bg-[#0b0f19] py-6 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div
+      class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2">
         <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
         <span>PrepRoom &copy; 2026 — SaaS Platform</span>
@@ -1000,4 +1258,5 @@
   <!-- Main ES6 JavaScript Entry Point -->
   <script type="module" src="js/app.js"></script>
 </body>
+
 </html>
