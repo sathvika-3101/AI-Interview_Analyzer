@@ -2,57 +2,123 @@
 
 ### Practice Smarter. Interview Better.
 
-> An AI-powered interview practice platform that provides instant feedback, scoring, and personalized suggestions to help you improve your interview performance.
+> An AI-powered interview practice platform that provides instant feedback, scoring, and personalized suggestions to help users improve their interview performance.
 
 🔗 **[Live Demo](https://sathvika-3101.github.io/AI-Interview_Analyzer/)**
 
 ---
 
-## 🚀 Features
+## 📌 About the Project
 
-- 🔐 Google Authentication
-- 🤖 AI-powered interview answer analysis
-- ⚡ Gemini 2.5 Flash integration
-- 📊 Interview performance scoring
-- 📝 Detailed evaluation reports
-- 📚 Interview history
-- 📈 Performance analytics
-- 👤 User profile
-- 🔗 Share interview reports
-- 🌐 GitHub Pages deployment
+**PrepRoom** is a web-based AI interview practice platform designed to help students and job seekers prepare for technical and professional interviews.
 
-💡 How It Works
-1. Sign in using your Google account.
-2. Enter an interview question and your answer.
-3. Submit your response for evaluation.
-4. PrepRoom analyzes the response using Gemini 2.5 Flash.
-5. Receive an overall score and detailed feedback.
-6. Review your strengths and areas for improvement.
-7. Track your interview performance through History and Analytics.
-📊 AI Evaluation
-PrepRoom analyzes interview responses based on:
-- Technical accuracy
-- Relevance
-- Clarity
-- Communication
-- Confidence
-- Answer structure
-- Overall response quality
-The platform also provides suggestions to help users improve their answers.
-🛠️ Technologies Used
-Technology	Purpose
-HTML5	Application structure
-CSS3	Styling and responsive design
-JavaScript	Application logic
-Tailwind CSS	UI styling
-Firebase Authentication	Google Sign-In
-Cloud Firestore	User and interview data
-Gemini 2.5 Flash	AI-powered evaluation
-GitHub Actions	Automated deployment
-GitHub Pages	Website hosting
+Users can submit their interview answers and receive AI-generated feedback on **technical accuracy, relevance, clarity, communication, confidence, and overall response quality**.
 
+The platform also allows users to review previous interviews and track their performance over time.
 
-🏗️ Project Structure
+---
+
+## 🚀 Key Features
+
+| Feature | Description |
+|---|---|
+| 🔐 **Google Authentication** | Secure sign-in using Firebase Authentication |
+| 🤖 **AI Evaluation** | Analyze interview answers using Gemini 2.5 Flash |
+| 📊 **Performance Scoring** | Get an overall score with detailed evaluation |
+| 📝 **Detailed Feedback** | Identify strengths, weaknesses, and areas for improvement |
+| 📚 **Interview History** | Access previously evaluated interview responses |
+| 📈 **Analytics** | Track interview performance and progress |
+| 👤 **User Profile** | Manage your profile and API configuration |
+| 🔗 **Report Sharing** | Share generated interview reports |
+| 🌐 **Live Deployment** | Hosted using GitHub Pages |
+
+---
+
+## ⚙️ How It Works
+
+```text
+User
+  │
+  ▼
+Google Authentication
+  │
+  ▼
+Enter Interview Question + Answer
+  │
+  ▼
+PrepRoom
+  │
+  ▼
+Gemini 2.5 Flash
+  │
+  ▼
+AI Evaluation
+  │
+  ├── Overall Score
+  ├── Strengths
+  ├── Weaknesses
+  ├── Feedback
+  └── Recommendations
+  │
+  ▼
+History & Analytics
+
+🧠 AI Evaluation
+PrepRoom evaluates interview responses across multiple dimensions:
+- Technical Accuracy – correctness of the answer
+- Relevance – how well the response addresses the question
+- Clarity – how clearly the idea is communicated
+- Communication – quality and effectiveness of expression
+- Confidence – confidence reflected in the response
+- Structure – organization and flow of the answer
+The system generates an overall score along with actionable recommendations for improvement.
+
+🛠️ Tech Stack
+Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Tailwind CSS
+Backend & Services
+- Firebase Authentication
+- Cloud Firestore
+- Google Gemini 2.5 Flash API
+Deployment & Tools
+- GitHub Pages
+- GitHub Actions
+- Git
+- Visual Studio Code
+🏗️ Project Architecture
+                    ┌─────────────────┐
+                    │      User       │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │    PrepRoom     │
+                    │   Web Interface │
+                    └────────┬────────┘
+                             │
+              ┌──────────────┴──────────────┐
+              ▼                             ▼
+     ┌─────────────────┐           ┌─────────────────┐
+     │ Firebase Auth   │           │ Gemini 2.5      │
+     │                 │           │ Flash API       │
+     └────────┬────────┘           └────────┬────────┘
+              │                             │
+              └──────────────┬──────────────┘
+                             ▼
+                    ┌─────────────────┐
+                    │ Cloud Firestore │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ History &       │
+                    │ Analytics       │
+                    └─────────────────┘
+
+📁 Project Structure
 AI-Interview_Analyzer/
 │
 ├── .github/
@@ -68,6 +134,7 @@ AI-Interview_Analyzer/
 │   ├── config.js
 │   ├── firebase-service.js
 │   ├── router.js
+│   │
 │   └── views/
 │       ├── landing.js
 │       ├── auth.js
@@ -83,8 +150,21 @@ AI-Interview_Analyzer/
 └── README.md
 
 🔐 Security
-PrepRoom uses Firebase Authentication to manage user sign-in and Cloud Firestore security rules to protect user-specific interview data.
-Note: API keys and other sensitive credentials should never be committed directly to the repository.
+PrepRoom uses Firebase Authentication and Cloud Firestore security rules to manage authenticated users and protect user-specific interview data.
+API keys and sensitive credentials should never be committed directly to the repository.
+💻 Getting Started
+1. Clone the repository
+git clone https://github.com/sathvika-3101/AI-Interview_Analyzer.git
+
+2. Navigate to the project
+cd AI-Interview_Analyzer
+
+3. Open in VS Code
+code .
+
+4. Run locally
+Use a local development server such as VS Code Live Server to launch the application.
+Firebase and Gemini configuration must be properly configured before using authentication and AI evaluation locally.
 
 🔮 Future Enhancements
 - 🎙️ Voice-based interview practice
@@ -94,10 +174,21 @@ Note: API keys and other sensitive credentials should never be committed directl
 - 📈 Advanced performance tracking
 - 💬 Personalized interview coaching
 - 🏆 Progress and achievement system
+🌐 Live Demo
+🚀 Try PrepRoom
+Practice your answers, receive AI feedback, and improve your interview performance.
 👩‍💻 Author
 Sathvika
 B.Tech – Computer Science and Engineering
-🌐 Live Demo
-Try PrepRoom:
-https://sathvika-3101.github.io/AI-Interview_Analyzer/
-Practice Smarter. Interview Better. 🚀
+Interested in Software Development, Data Analytics, and AI-powered applications.
+⭐ Support
+If you find PrepRoom useful, consider giving the repository a ⭐ on GitHub.
+✨ Practice Smarter. Interview Better.
+
+**That's the complete file.** Copy from `# ✨ PrepRoom` all the way down to `### ✨ Practice Smarter. Interview Better.` and paste it into GitHub's README editor.
+
+Then commit with:
+
+**Commit message:** `Improve README documentation`
+
+**Commit directly to `main`** → **Commit changes**.
