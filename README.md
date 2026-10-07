@@ -1,8 +1,15 @@
-✨ PrepRoom
-Practice Smarter. Interview Better.
-PrepRoom is an AI-powered interview practice platform that helps users improve their interview answers through instant AI feedback, scoring, and personalized suggestions.
-🔗 Live Website: https://sathvika-3101.github.io/AI-Interview_Analyzer/
-🚀 Features
+# ✨ PrepRoom
+
+### Practice Smarter. Interview Better.
+
+> An AI-powered interview practice platform that provides instant feedback, scoring, and personalized suggestions to help you improve your interview performance.
+
+🔗 **[Live Demo](https://sathvika-3101.github.io/AI-Interview_Analyzer/)**
+
+---
+
+## 🚀 Features
+
 - 🔐 Google Authentication
 - 🤖 AI-powered interview answer analysis
 - ⚡ Gemini 2.5 Flash integration
@@ -13,6 +20,7 @@ PrepRoom is an AI-powered interview practice platform that helps users improve t
 - 👤 User profile
 - 🔗 Share interview reports
 - 🌐 GitHub Pages deployment
+
 💡 How It Works
 1. Sign in using your Google account.
 2. Enter an interview question and your answer.
