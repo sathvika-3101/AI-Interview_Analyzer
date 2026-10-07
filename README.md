@@ -62,6 +62,9 @@ AI Evaluation
   │
   ▼
 History & Analytics
+```
+
+---
 
 ## 🧠 AI Evaluation
 
@@ -82,85 +85,77 @@ The evaluation produces an overall score along with strengths, areas for improve
 
 ## 🛠️ Technology Stack
 
-**Frontend**
+### Frontend
 
-`HTML5` · `CSS3` · `JavaScript` · `Tailwind CSS`
+**HTML5** · **CSS3** · **JavaScript** · **Tailwind CSS**
 
-**Backend & Services**
+### Backend & Services
 
-`Firebase Authentication` · `Cloud Firestore` · `Gemini 2.5 Flash API`
+**Firebase Authentication** · **Cloud Firestore** · **Gemini 2.5 Flash API**
 
-**Deployment & Development**
+### Deployment & Development
 
-`GitHub Pages` · `GitHub Actions` · `Git` · `Visual Studio Code`
+**GitHub Pages** · **GitHub Actions** · **Git** · **Visual Studio Code**
 
 ---
 
 ## 🏗️ Architecture
 
-```text
-                         ┌──────────────┐
-                         │     User     │
-                         └──────┬───────┘
-                                │
-                                ▼
-                    ┌─────────────────────┐
-                    │      PrepRoom       │
-                    │    Web Interface    │
-                    └──────────┬──────────┘
-                               │
-                 ┌─────────────┴─────────────┐
-                 │                           │
-                 ▼                           ▼
-        ┌─────────────────┐         ┌─────────────────┐
-        │ Firebase Auth   │         │ Gemini 2.5 Flash│
-        │  Authentication │         │       API       │
-        └────────┬────────┘         └────────┬────────┘
-                 │                           │
-                 └─────────────┬─────────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   Cloud Firestore   │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ History & Analytics │
-                    └─────────────────────┘
+PrepRoom follows a simple client-side architecture that connects the user interface with authentication, AI evaluation, and data storage services.
+
+**User**  
+↓  
+**PrepRoom Web Interface**  
+↓  
+**Firebase Authentication** + **Gemini 2.5 Flash API**  
+↓  
+**Cloud Firestore**  
+↓  
+**Interview History & Analytics**
+
+### Main Components
+
+- **Frontend** — Provides the landing page, dashboard, interview analyzer, history, analytics, profile, and evaluation views.
+- **Firebase Authentication** — Handles Google sign-in and authenticated user sessions.
+- **Gemini 2.5 Flash** — Evaluates interview responses and generates personalized feedback.
+- **Cloud Firestore** — Stores user profiles and interview records.
+- **GitHub Pages** — Hosts the deployed application.
 
 ---
 
 ## 📁 Project Structure
 
-```text
-AI-Interview_Analyzer/
-│
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
-│
-├── css/
-│   └── styles.css
-│
-├── js/
-│   ├── app.js
-│   ├── ai-service.js
-│   ├── config.js
-│   ├── firebase-service.js
-│   ├── router.js
-│   └── views/
-│       ├── landing.js
-│       ├── auth.js
-│       ├── dashboard.js
-│       ├── analyzer.js
-│       ├── history.js
-│       ├── analytics.js
-│       ├── profile.js
-│       └── results.js
-│
-├── index.html
-└── README.md
+### Core Files
+
+- **`index.html`** — Main application entry point
+- **`README.md`** — Project documentation
+
+### Styles
+
+- **`css/styles.css`** — Application styling and responsive UI
+
+### JavaScript
+
+- **`js/app.js`** — Application initialization and view management
+- **`js/ai-service.js`** — Gemini AI integration and response evaluation
+- **`js/config.js`** — Application configuration
+- **`js/firebase-service.js`** — Firebase Authentication and Firestore operations
+- **`js/router.js`** — Application routing
+
+### Application Views
+
+- **`landing.js`** — Landing page
+- **`auth.js`** — Authentication interface
+- **`dashboard.js`** — User dashboard
+- **`analyzer.js`** — Interview answer analysis
+- **`history.js`** — Previous interview records
+- **`analytics.js`** — Performance analytics
+- **`profile.js`** — User profile and API key settings
+- **`results.js`** — AI evaluation report
+
+### Deployment
+
+- **`.github/workflows/deploy.yml`** — Automated GitHub Pages deployment using GitHub Actions
 
 ---
 
@@ -172,28 +167,43 @@ Each interview record is associated with the authenticated user, helping ensure 
 
 > **Note:** API keys and other sensitive credentials should never be committed directly to the repository.
 
-💻 Getting Started
-1. Clone the repository
+---
+
+## 💻 Getting Started
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/sathvika-3101/AI-Interview_Analyzer.git
-
-2. Navigate to the project
 cd AI-Interview_Analyzer
+```
 
-3. Open in VS Code
+### 2. Open the Project
+
+Open the project folder in **Visual Studio Code**.
+
+```bash
 code .
+```
 
-4. Run locally
-Use a local development server such as VS Code Live Server to launch the application.
-Firebase and Gemini configuration must be properly configured before using authentication and AI evaluation locally.
+### 3. Run Locally
+
+Launch the application using a local development server such as **VS Code Live Server**.
+
+> Firebase Authentication, Cloud Firestore, and Gemini API configuration are required for the complete application experience.
+
+---
 
 ## 🔮 Future Enhancements
-- 🎙️ Voice-based interview practice
-- 🗣️ Speech and pronunciation analysis
-- 🎯 Role-specific interview questions
-- 📄 Resume-based interview preparation
-- 📈 Advanced performance tracking
-- 💬 Personalized interview coaching
-- 🏆 Progress and achievement system
+
+- Voice-based interview practice
+- Speech and pronunciation analysis
+- Role-specific interview preparation
+- Resume-based interview questions
+- Advanced performance analytics
+- Personalized interview coaching
+- Progress and achievement tracking
+
 ---
 
 ## 🌐 Live Demo
